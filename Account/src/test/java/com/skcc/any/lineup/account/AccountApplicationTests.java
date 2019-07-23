@@ -1,4 +1,4 @@
-package com.skcc.dcna.notice;
+package com.skcc.any.lineup.account;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,13 +1,13 @@
-package com.skcc.dcna.notice;
+package com.skcc.any.lineup.recommend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AccountApplication {
+public class RecommendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AccountApplication.class, args);
+		SpringApplication.run(RecommendApplication.class, args);
 	}
 
 }

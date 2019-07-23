@@ -1,4 +1,4 @@
-package com.skcc.dcna.notice;
+package com.skcc.any.lineup.lineup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

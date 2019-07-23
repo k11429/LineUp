@@ -8,7 +8,7 @@
 		<version>1.5.21.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.skcc.dcna</groupId>
+	<groupId>com.skcc.any</groupId>
 	<artifactId>LineUp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LineUp</name>
