@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"store",
+      "labels":{
+         "app":"store"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":11002,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"store"
+      },
+      "type": "LoadBalancer"
+   }
+}
