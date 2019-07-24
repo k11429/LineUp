@@ -5,7 +5,7 @@ FROM maven:3.5-jdk-8
 COPY ./pom.xml ./pom.xml
 
 # build all dependencies for offline use
-RUN mvn dependency:go-offline -B
+# RUN mvn dependency:go-offline -B
 
 # copy your other files
 COPY ./src ./src
