@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import com.skcc.any.lineup.store.domain.model.Address;
 import com.skcc.any.lineup.store.domain.model.Store;
 import com.skcc.any.lineup.store.domain.model.StoreDescription;
+import com.skcc.any.lineup.store.domain.model.StoreType;
 
 
 public interface StoreService {
@@ -23,7 +24,7 @@ public interface StoreService {
 	Store update(Long id, Store store);	
 	void delete(Long id);
 	
-	Store updateByOwnerAccountIdAndStoreName(String id, String name, Address address, StoreDescription sd);
+	Store updateByOwnerAccountIdAndStoreName(String id, String name,  Integer zip, String storeAddress, String storeInfo, StoreType storeType);
 	void deleteByOwnerAccountIdAndStoreName(String id, String name);
 	
 }

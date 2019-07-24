@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.any.lineup.store.domain.model.Address;
 import com.skcc.any.lineup.store.domain.model.Store;
-import com.skcc.any.lineup.store.domain.model.StoreDescription;
+import com.skcc.any.lineup.store.domain.model.StoreType;
 import com.skcc.any.lineup.store.domain.service.StoreService;
 
 @RestController
@@ -53,10 +52,13 @@ public class StoreRestController implements StoreService {
 	@Override
 	@PutMapping("/storeUpdate")
 	public Store updateByOwnerAccountIdAndStoreName(@RequestParam("ownerAccountId") String ownerAccountId,
-													@RequestParam("name") String name,	
-													@RequestParam("address") Address address,		
-													@RequestParam("sd") StoreDescription sd) {	
-	return storeService.updateByOwnerAccountIdAndStoreName(ownerAccountId, name, address, sd);
+													@RequestParam("storeName") String storeName,	
+													@RequestParam("zipCode") Integer zipCode,		
+													@RequestParam("storeAddress") String storeAddress,		
+													@RequestParam("storeIntro") String storeIntro,
+													@RequestParam("storeType") StoreType storeType		
+													) {	
+	return storeService.updateByOwnerAccountIdAndStoreName(ownerAccountId, storeName, zipCode, storeAddress, storeIntro, storeType);
 	}	
 	
 	@Override

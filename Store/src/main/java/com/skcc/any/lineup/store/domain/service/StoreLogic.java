@@ -9,10 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skcc.any.lineup.store.domain.model.Address;
 import com.skcc.any.lineup.store.domain.model.Store;
-import com.skcc.any.lineup.store.domain.model.StoreDescription;
-import com.skcc.any.lineup.store.domain.repository.MenuRepository;
+import com.skcc.any.lineup.store.domain.model.StoreType;
 import com.skcc.any.lineup.store.domain.repository.StoreRepository;
 
 
@@ -78,12 +76,18 @@ public class StoreLogic implements StoreService {
 
 	@Override
 	@Transactional
-	public Store updateByOwnerAccountIdAndStoreName(String id, String name,  Address address, StoreDescription sd) {
-		Store oldStore = storeRepository.findByOwnerAccountIdAndStoreName(id, name);
+	public Store updateByOwnerAccountIdAndStoreName(String ownerAccountId
+												   , String storeName
+												   , Integer zip
+												   , String storeAddress
+												   , String storeIntro
+												   , StoreType storeType) {
+		Store oldStore = storeRepository.findByOwnerAccountIdAndStoreName(ownerAccountId, storeName);
 		if(oldStore != null) {
-			oldStore.setStoreName(name);
-			oldStore.setStoreAddress(address);
-			oldStore.setStoreDescription(sd);
+			oldStore.getStoreAddress().setZipCode(zip);
+			oldStore.getStoreAddress().setStoreAddress(storeAddress);
+			oldStore.getStoreDescription().setStoreIntro(storeIntro);
+			oldStore.getStoreDescription().setStoreType(storeType);
 			return storeRepository.save(oldStore);
 		} else {
 			return null;
