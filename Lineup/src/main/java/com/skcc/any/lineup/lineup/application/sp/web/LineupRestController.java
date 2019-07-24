@@ -43,13 +43,13 @@ public class LineupRestController implements LineupService {
 	}
 
 	@Override
-	@PutMapping("/{id}")
+	@PutMapping("/cancel/{id}")
 	public Lineup cancel(@PathVariable("id") Long id) {
 		return lineupService.cancel(id);
 	}
 	
 	@Override
-	@PutMapping("/{id}")
+	@PutMapping("/enter/{id}")
 	public Lineup enter(@PathVariable("id") Long id) {
 		return lineupService.enter(id);
 	}

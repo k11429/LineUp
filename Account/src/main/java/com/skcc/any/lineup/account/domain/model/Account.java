@@ -28,8 +28,10 @@ public class Account {
 		this.password = password;
 		this.name = name;
 		this.memberType = memberType;
-		this.contact.setEmail(email);
-		this.contact.setMobile(mobile);
+		Contact ct = new Contact();
+		ct.setEmail(email);
+		ct.setMobile(mobile);
+		this.contact = ct;
 	}
 }
 
