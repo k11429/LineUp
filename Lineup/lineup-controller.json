@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"lineup",
+      "labels":{
+         "app":"lineup"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"lineup"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"lineup"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"lineup",
+                  "image":"docker.io/k11429/team4-lineup:0.1",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":8002
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}

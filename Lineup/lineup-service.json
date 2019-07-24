@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"lineup",
+      "labels":{
+         "app":"lineup"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":8002,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"lineup"
+      },
+      "type": "LoadBalancer"
+   }
+}
