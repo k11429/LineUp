@@ -55,8 +55,9 @@ public class MenuRestController implements MenuService {
 															  @RequestParam("storeName") String storeName,	
 															  @RequestParam("menuName") String menuName,	
 															  @RequestParam("price") Integer price,		
-															  @RequestParam("menuType") MenuType menuType) {	
-	return menuService.updateByOwnerAccountIdAndStoreNameAndMenuName(ownerAccountId, storeName, menuName, price, menuType);
+															  @RequestParam("menuType") MenuType menuType,
+															  @RequestParam("menuInfo") String menuInfo) {	
+	return menuService.updateByOwnerAccountIdAndStoreNameAndMenuName(ownerAccountId, storeName, menuName, price, menuType, menuInfo);
 	}	
 	
 	@Override

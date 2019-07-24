@@ -71,12 +71,13 @@ public class MenuLogic implements MenuService {
 
 	@Override
 	@Transactional
-	public Menu updateByOwnerAccountIdAndStoreNameAndMenuName(String id, String storeName, String menuName, Integer price, MenuType menuType) {
+	public Menu updateByOwnerAccountIdAndStoreNameAndMenuName(String id, String storeName, String menuName, Integer price, MenuType menuType, String menuInfo) {
 		Menu oldMenu = menuRepository.findByOwnerAccountIdAndStoreNameAndMenuName(id, storeName, menuName);
 		if(oldMenu != null) {
 			oldMenu.setMenuName(menuName);
 			oldMenu.setPrice(price);
 			oldMenu.setMenuType(menuType);
+			oldMenu.setMenuInfo(menuInfo);
 			return menuRepository.save(oldMenu);
 		} else {
 			return null;

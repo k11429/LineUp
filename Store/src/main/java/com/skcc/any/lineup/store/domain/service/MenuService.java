@@ -22,7 +22,7 @@ public interface MenuService {
 	Menu update(Long id, Menu menu);	
 	void delete(Long id);
 	
-	Menu updateByOwnerAccountIdAndStoreNameAndMenuName(String id, String storeName, String menuName, Integer price, MenuType menuType);
+	Menu updateByOwnerAccountIdAndStoreNameAndMenuName(String id, String storeName, String menuName, Integer price, MenuType menuType, String menuInfo);
 	void deleteByOwnerAccountIdAndStoreNameAndMenuName(String id, String storeName, String menuName);
 	
 }
