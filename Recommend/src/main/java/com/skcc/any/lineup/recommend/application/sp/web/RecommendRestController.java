@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skcc.any.lineup.recommend.application.proxy.feign.dto.account.Account;
+import com.skcc.any.lineup.recommend.application.proxy.feign.dto.store.Store;
 import com.skcc.any.lineup.recommend.domain.model.Recommend;
 import com.skcc.any.lineup.recommend.domain.service.RecommendService;
 
@@ -74,5 +75,9 @@ public class RecommendRestController implements RecommendService {
 		return RecommendService.checkAccount(accountId);
 	}
 
-
+	@Override
+	//@GetMapping
+	public Store checkStore(String accountId, String storeName) {
+		return RecommendService.checkStore(accountId,storeName);
+	}
 }

@@ -51,30 +51,30 @@ public class AccountProxy {
 		return accountClient.findByContactMobile(mobile);
 	}
 
-	@FeignClient(name="account", url="http://localhost:11001", configuration=FeignClientConfiguration.class)
+	@FeignClient(name="v1/account", url="http://localhost:11001", configuration=FeignClientConfiguration.class)
 	interface AccountClient {
 		
-		@GetMapping("account/{id}")
+		@GetMapping("v1/account/{accountId}")
 		Account findById(@PathVariable("accountId") String accountId);
 
-		@GetMapping("account/search/name")
+		@GetMapping("v1/account/search/name")
 		Resource<Account> findByNameLike(@RequestParam(value="name", required=true) String name);
 		
-		@GetMapping("account/search/mobile")
+		@GetMapping("v1/account/search/mobile")
 		Account findByContactMobile(@RequestParam(value="mobile", required=true) String mobile);
 		
 		
 		//default  생성자
-		@GetMapping("account/{id}")
+		@GetMapping("v1/account/{id}")
 		Resource<Account> findAccount(@PathVariable("id") Long id);
 		
-		@GetMapping("account")
+		@GetMapping("v1/account")
 		Resources<Account> findAllaccount();
 		
-		@GetMapping("account")
+		@GetMapping("v1/account")
 		Resources<Account> findAllaccount(@RequestParam("size") int size);
 		
-		@GetMapping("account/search/findByName")
+		@GetMapping("v1/account/search/findByName")
 		Account findAccount(@RequestParam(value="name", required=true) String name);
 
 	}

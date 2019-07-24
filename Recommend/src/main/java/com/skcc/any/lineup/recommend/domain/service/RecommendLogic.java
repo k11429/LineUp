@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.skcc.any.lineup.recommend.application.proxy.feign.AccountProxy;
 import com.skcc.any.lineup.recommend.application.proxy.feign.StoreProxy;
 import com.skcc.any.lineup.recommend.application.proxy.feign.dto.account.Account;
+import com.skcc.any.lineup.recommend.application.proxy.feign.dto.store.Store;
 import com.skcc.any.lineup.recommend.domain.model.Recommend;
 import com.skcc.any.lineup.recommend.domain.repository.RecommendRepository;
 
@@ -84,6 +85,16 @@ public class RecommendLogic implements RecommendService {
 		}
 		else {
 			return account;
+		}
+	}
+	
+	public Store checkStore(String ownerAccountId, String storeName) {
+		Store store = storeProxy.findStoreByOwnerIDAndStoreName(ownerAccountId, storeName);
+		if(store == null) {
+			return null;
+		}
+		else {
+			return store;
 		}
 	}
 }

@@ -42,19 +42,23 @@ public class StoreProxy {
 		return storeClient.findStore(ownerAccountId);
 	}
 
-		
+	public Store findStoreByOwnerIDAndStoreName(String ownerAccountId, String storeName) {
+		return storeClient.findStoreByOwnerIDAndStoreName(ownerAccountId, storeName);
+	}
+
+				
 	
 	
-	@FeignClient(name="store", url="http://localhost:11002", configuration=FeignClientConfiguration.class)
+	@FeignClient(name="v1/store", url="http://localhost:11002", configuration=FeignClientConfiguration.class)
 	interface StoreClient {
 		
-		@GetMapping("/search/name")
+		@GetMapping("v1/store/search/name")
 		Store findStoreByStoreName(@RequestParam(value="name", required=true) String name);
 
-		@GetMapping("/search/id")
+		@GetMapping("v1/store/search/id")
 		Store findStoreByOwnerID(@RequestParam(value="ownerAccountId", required=true) String ownerAccountId);	
 		
-		@GetMapping("/search/id-name")
+		@GetMapping("v1/store/search/id-name")
 		Store findStoreByOwnerIDAndStoreName(@RequestParam(value="ownerAccountId", required=true) String ownerAccountId
 								, @RequestParam(value="storeName", required=true) String storeName);	
 
