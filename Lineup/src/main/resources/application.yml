@@ -1,9 +1,15 @@
 server:
-  port: 11001
+  port: 11003
 
 spring:
-  profiles: dev
+  profiles:
+    active: 
+    - default
   
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    
   h2:
     console:
       enabled: true
@@ -19,3 +25,12 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+#        sql_comments: true
+
+#logging:
+#  level: 
+#    org.hibernate.type: trace

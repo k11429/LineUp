@@ -19,7 +19,7 @@ public class AccountLogic implements AccountService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Account findById(Long id) {
+	public Account findById(String id) {
 		return accountRepository.findOne(id);
 	}
 
@@ -56,7 +56,7 @@ public class AccountLogic implements AccountService {
 
 	@Override
 	@Transactional
-	public Account update(Long id, Account newAccount) {
+	public Account update(String id, Account newAccount) {
 		Account oldAccount = accountRepository.findOne(id);
 		if(oldAccount != null) {
 			BeanUtils.copyProperties(newAccount,  oldAccount, "id");
@@ -68,7 +68,7 @@ public class AccountLogic implements AccountService {
 
 	@Override
 	@Transactional
-	public void delete(Long id) {
+	public void delete(String id) {
 		accountRepository.delete(id);
 	}
 }

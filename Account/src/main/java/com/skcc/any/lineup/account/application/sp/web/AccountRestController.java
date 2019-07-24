@@ -19,7 +19,7 @@ import com.skcc.any.lineup.account.domain.model.Account;
 import com.skcc.any.lineup.account.domain.service.AccountService;
 
 @RestController
-@RequestMapping("/v1/accounts")
+@RequestMapping("/v1/account")
 public class AccountRestController implements AccountService {
 	@Autowired
 	private AccountService accountService;
@@ -32,7 +32,7 @@ public class AccountRestController implements AccountService {
 	
 	@Override
 	@GetMapping("/{id}")
-	public Account findById(@PathVariable("id") Long id) {
+	public Account findById(@PathVariable("id") String id) {
 		return accountService.findById(id);
 	}
 
@@ -44,13 +44,13 @@ public class AccountRestController implements AccountService {
 
 	@Override
 	@PutMapping("/{id}")
-	public Account update(@PathVariable("id") Long id, @RequestBody Account account) {
+	public Account update(@PathVariable("id") String id, @RequestBody Account account) {
 		return accountService.update(id, account);
 	}
 
 	@Override
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Long id) {
+	public void delete(@PathVariable("id") String id) {
 		accountService.delete(id);
 	}
 	

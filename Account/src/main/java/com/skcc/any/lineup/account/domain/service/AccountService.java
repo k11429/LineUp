@@ -9,7 +9,7 @@ import com.skcc.any.lineup.account.domain.model.Account;
 
 
 public interface AccountService {
-	Account findById(Long id);
+	Account findById(String id);
 	List<Account> findAll();
 	Page<Account> findAll(Pageable pageable);
 	
@@ -17,7 +17,7 @@ public interface AccountService {
 	Account findByContactMobile(String mobile);
 	
 	Account register(Account account);
-	Account update(Long id, Account account);
+	Account update(String id, Account account);
 
-	void delete(Long id);
+	void delete(String id);
 }

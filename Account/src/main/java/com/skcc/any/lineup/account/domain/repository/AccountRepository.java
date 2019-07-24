@@ -12,7 +12,7 @@ import com.querydsl.core.types.Predicate;
 import com.skcc.any.lineup.account.domain.model.Account;
 
 @RepositoryRestResource
-public interface AccountRepository extends PagingAndSortingRepository<Account, Long>,
+public interface AccountRepository extends PagingAndSortingRepository<Account, String>,
                                            QueryDslPredicateExecutor<Account> {
 	
 	Account findById(@Param("id") String id);
