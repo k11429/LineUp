@@ -17,6 +17,7 @@ public interface StoreService {
 	
 	List<Store> findStoreByStoreName(String name);
 	Store findStoreByOwnerID(String id);
+	Store findStoreByOwnerIDAndStoreName(String ownerAccountId, String storeName);
 	
 	Store register(Store store);
 	Store update(Long id, Store store);	

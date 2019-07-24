@@ -39,12 +39,32 @@ public class AccountProxy {
 		return accountClient.findAllaccount(size).getContent();
 	}
 	
-	public Account findAccounByName(String name) {
+	public Account findAccountByName(String name) {
 		return accountClient.findAccount(name);
+	}
+
+	public Account findByAccountId(String accountId) {
+		return accountClient.findByAccountId(accountId);
+	}
+
+	public Account findByContactMobile(String mobile) {
+		return accountClient.findByContactMobile(mobile);
 	}
 
 	@FeignClient(name="account", url="http://localhost:11001", configuration=FeignClientConfiguration.class)
 	interface AccountClient {
+		
+		@GetMapping("account/{id}")
+		Account findByAccountId(@PathVariable("accountId") String accountId);
+
+		@GetMapping("account/search/name")
+		Resource<Account> findByNameLike(@RequestParam(value="name", required=true) String name);
+		
+		@GetMapping("account/search/mobile")
+		Account findByContactMobile(@RequestParam(value="mobile", required=true) String mobile);
+		
+		
+		//default  생성자
 		@GetMapping("account/{id}")
 		Resource<Account> findAccount(@PathVariable("id") Long id);
 		

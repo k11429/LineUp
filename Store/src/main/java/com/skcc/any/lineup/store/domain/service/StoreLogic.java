@@ -35,8 +35,14 @@ public class StoreLogic implements StoreService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Store findStoreByOwnerID(String email) {
-		return storeRepository.findByOwnerAccountId(email);
+	public Store findStoreByOwnerID(String ownerAccountId) {
+		return storeRepository.findByOwnerAccountId(ownerAccountId);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Store findStoreByOwnerIDAndStoreName(String ownerAccountId, String storeName) {
+		return storeRepository.findByOwnerAccountIdAndStoreName(ownerAccountId,storeName);
 	}
 	
 	@Override

@@ -85,6 +85,13 @@ public class StoreRestController implements StoreService {
 	}
 
 	@Override
+	@GetMapping("/search/id-name")
+	public Store findStoreByOwnerIDAndStoreName(@RequestParam("ownerAccountId") String ownerAccountId
+														, @RequestParam("storeName") String storeName) {
+		return storeService.findStoreByOwnerIDAndStoreName(ownerAccountId,storeName);
+	}
+
+	@Override
 	//@GetMapping
 	public Page<Store> findAll(Pageable pageable) {
 		return storeService.findAll(pageable); 
