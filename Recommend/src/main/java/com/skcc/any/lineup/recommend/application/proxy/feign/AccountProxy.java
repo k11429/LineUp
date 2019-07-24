@@ -43,8 +43,8 @@ public class AccountProxy {
 		return accountClient.findAccount(name);
 	}
 
-	public Account findByAccountId(String accountId) {
-		return accountClient.findByAccountId(accountId);
+	public Account findById(String accountId) {
+		return accountClient.findById(accountId);
 	}
 
 	public Account findByContactMobile(String mobile) {
@@ -55,7 +55,7 @@ public class AccountProxy {
 	interface AccountClient {
 		
 		@GetMapping("account/{id}")
-		Account findByAccountId(@PathVariable("accountId") String accountId);
+		Account findById(@PathVariable("accountId") String accountId);
 
 		@GetMapping("account/search/name")
 		Resource<Account> findByNameLike(@RequestParam(value="name", required=true) String name);

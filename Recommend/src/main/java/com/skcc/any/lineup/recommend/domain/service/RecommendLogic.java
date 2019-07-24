@@ -9,15 +9,23 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skcc.any.lineup.recommend.application.proxy.feign.AccountProxy;
+import com.skcc.any.lineup.recommend.application.proxy.feign.StoreProxy;
+import com.skcc.any.lineup.recommend.application.proxy.feign.dto.account.Account;
 import com.skcc.any.lineup.recommend.domain.model.Recommend;
 import com.skcc.any.lineup.recommend.domain.repository.RecommendRepository;
 
 
-@Service("menuLogic")
+@Service("recommendLogic")
 public class RecommendLogic implements RecommendService {
 	@Autowired
 	private RecommendRepository RecommendRepository;
 
+	@Autowired
+	private AccountProxy accountProxy;
+	
+	@Autowired
+	private StoreProxy storeProxy;
 	
 	@Override
 	@Transactional(readOnly=true)
@@ -56,12 +64,26 @@ public class RecommendLogic implements RecommendService {
 		}
 	}
 
-
 	
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		RecommendRepository.delete(id);
 	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public List<Recommend> findByStoreName(String storeName) {
+		return RecommendRepository.findByStoreName(storeName);
+	}
 	
+	public Account checkAccount(String accountId) {
+		Account account = accountProxy.findById(accountId);
+		if(account == null) {
+			return null;
+		}
+		else {
+			return account;
+		}
+	}
 }

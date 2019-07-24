@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skcc.any.lineup.recommend.application.proxy.feign.dto.account.Account;
 import com.skcc.any.lineup.recommend.domain.model.Recommend;
 import com.skcc.any.lineup.recommend.domain.service.RecommendService;
 
 @RestController
-@RequestMapping("/v1/menu")
+@RequestMapping("/v1/recommend")
 public class RecommendRestController implements RecommendService {
 	@Autowired
 	private RecommendService RecommendService;
@@ -29,9 +29,15 @@ public class RecommendRestController implements RecommendService {
 	public List<Recommend> findAll() {
 		return RecommendService.findAll(); 
 	}
+
+	@Override
+	@GetMapping("/getName/{storeName}")
+	public List<Recommend> findByStoreName(@PathVariable("storeName") String storeName) {
+		return RecommendService.findByStoreName(storeName); 
+	}
 	
 	@Override
-	@GetMapping("/{id}")
+	@GetMapping("/getId/{id}")
 	public Recommend findById(@PathVariable("id") Long id) {
 		return RecommendService.findById(id);
 	}
@@ -43,14 +49,14 @@ public class RecommendRestController implements RecommendService {
 	}
 
 	@Override
-	@PutMapping("/{id}")
+	@PutMapping("/putId/{id}")
 	public Recommend update(@PathVariable("id") Long id, @RequestBody Recommend Recommend) {
 		return RecommendService.update(id, Recommend);
 	}
 
 
 	@Override
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/deleteId/{id}")
 	public void delete(@PathVariable("id") Long id) {
 		RecommendService.delete(id);
 	}
@@ -60,6 +66,12 @@ public class RecommendRestController implements RecommendService {
 	//@GetMapping
 	public Page<Recommend> findAll(Pageable pageable) {
 		return RecommendService.findAll(pageable); 
+	}
+	
+	@Override
+	//@GetMapping
+	public Account checkAccount(String accountId) {
+		return RecommendService.checkAccount(accountId);
 	}
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.skcc.any.lineup.recommend.application.proxy.feign.dto.account.Account;
 import com.skcc.any.lineup.recommend.domain.model.Recommend;
 
 
@@ -15,6 +16,7 @@ public interface RecommendService {
 	Recommend register(Recommend Recommend);
 	Recommend update(Long id, Recommend Recommend);	
 	void delete(Long id);
-	
+	Account checkAccount(String accountId);
+	List<Recommend> findByStoreName(String StoreName);
 	
 }
