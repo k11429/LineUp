@@ -17,7 +17,7 @@ public class Account {
 	private String password;
 	private String name;
 	
-	@Enumerated(EnumType.ORDINAL)
+	@Enumerated(EnumType.STRING)
 	private MemberType memberType;
 	
 	
