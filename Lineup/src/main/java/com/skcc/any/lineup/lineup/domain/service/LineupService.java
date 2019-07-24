@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.skcc.any.lineup.lineup.domain.model.Account;
 import com.skcc.any.lineup.lineup.domain.model.Lineup;
-import com.skcc.any.lineup.lineup.domain.model.Store;
 
 
 public interface LineupService {

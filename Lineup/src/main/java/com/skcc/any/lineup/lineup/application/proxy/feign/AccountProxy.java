@@ -16,6 +16,7 @@ import com.skcc.any.lineup.lineup.application.proxy.feign.dto.account.Account;
 
 @Service
 public class AccountProxy {
+
 	@Autowired
 	private AccountClient accountClient;
 	

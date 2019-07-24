@@ -20,24 +20,24 @@ public class StoreProxy {
 	@Autowired
 	private StoreClient storeClient;
 	
-	public Store findProduct(Long id) {
-		return storeClient.findProduct(id).getContent();
+	public Store findStore(Long id) {
+		return storeClient.findStore(id).getContent();
 	}
 
-	public Collection<Store> findAllProducts() {
-		return storeClient.findAllProducts().getContent();
+	public Collection<Store> findAllStores() {
+		return storeClient.findAllStores().getContent();
 	}
 	
-	public Collection<Store> findAllProducts(int size) {
-		return storeClient.findAllProducts(size).getContent();
+	public Collection<Store> findAllStores(int size) {
+		return storeClient.findAllStores(size).getContent();
 	}
 	
-	public Store findProductByName(String name) {
-		return storeClient.findProduct(name);
+	public Store findStoreByName(String name) {
+		return storeClient.findStore(name);
 	}
 
 	@FeignClient(name="store", url="http://localhost:11002", configuration=FeignClientConfiguration.class)
-	interface storeClient {
+	interface StoreClient {
 		@GetMapping("store/{id}")
 		Resource<Store> findStore(@PathVariable("id") Long id);
 		

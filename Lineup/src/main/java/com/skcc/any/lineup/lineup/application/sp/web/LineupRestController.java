@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.any.lineup.lineup.domain.model.Account;
 import com.skcc.any.lineup.lineup.domain.model.Lineup;
-import com.skcc.any.lineup.lineup.domain.model.Store;
 import com.skcc.any.lineup.lineup.domain.service.LineupService;
 
 @RestController
