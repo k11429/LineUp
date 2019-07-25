@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"account",
+      "labels":{
+         "app":"account"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":11001,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"account"
+      },
+      "type": "LoadBalancer"
+   }
+}

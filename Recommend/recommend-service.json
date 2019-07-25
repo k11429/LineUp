@@ -1,0 +1,22 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"recommend",
+      "labels":{
+         "app":"recommend"
+      }
+   },
+   "spec":{
+      "ports": [
+         {
+           "port":11004,
+           "targetPort":"http-server"
+         }
+      ],
+      "selector":{
+         "app":"recommend"
+      },
+      "type": "LoadBalancer"
+   }
+}

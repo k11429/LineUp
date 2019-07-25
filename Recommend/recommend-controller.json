@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"recommend",
+      "labels":{
+         "app":"recommend"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"recommend"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"recommend"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"recommend",
+                  "image":"docker.io/k11429/team4-recommend:0.1",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":11004
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
