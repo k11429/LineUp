@@ -25,11 +25,11 @@ public class RecommendApplication {
 	@Bean
 	public CommandLineRunner execSampleCode(RecommendRepository recommendRepository, @Qualifier("recommendLogic") RecommendService recommendService) {	
 		return (args) -> {
-			insertRecommend(recommendRepository, recommendService);
-			displayRecommend(recommendRepository);
+//			insertRecommend(recommendRepository, recommendService);
+//			displayRecommend(recommendRepository);
 		};
 	}
-
+/*
 	public void insertRecommend(RecommendRepository recommendRepository, RecommendService recommendService) {
 		Recommend recommend1 = new Recommend(1l,"test01","Manri","만리장성",ScoreType.VERYGOOD,"정말 맛있어요");
 		if ( recommendService.checkAccount(recommend1.getAccountId()) == null ) {
@@ -86,7 +86,7 @@ public class RecommendApplication {
 		System.out.println("***************************************************************");
 	
 	}
-
+*/
 	public void displayRecommend(RecommendRepository recommendRepository) {
 		
 	}
