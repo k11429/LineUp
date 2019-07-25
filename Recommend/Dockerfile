@@ -11,7 +11,7 @@ RUN mvn dependency:go-offline -B
 COPY ./src ./src
 
 # build for release
-RUN mvn package
+RUN mvn  package
 
 # set the startup command to run your binary
 EXPOSE 11004

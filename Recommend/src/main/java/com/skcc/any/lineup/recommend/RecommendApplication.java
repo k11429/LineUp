@@ -26,7 +26,6 @@ public class RecommendApplication {
 	public CommandLineRunner execSampleCode(RecommendRepository recommendRepository, @Qualifier("recommendLogic") RecommendService recommendService) {	
 		return (args) -> {
 //			insertRecommend(recommendRepository, recommendService);
-//			displayRecommend(recommendRepository);
 		};
 	}
 /*
@@ -87,8 +86,5 @@ public class RecommendApplication {
 	
 	}
 */
-	public void displayRecommend(RecommendRepository recommendRepository) {
-		
-	}
 	
 }
